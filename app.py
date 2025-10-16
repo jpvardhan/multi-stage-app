@@ -11,7 +11,7 @@ VERSION = "v1.0.0"
 ENVIRONMENT = "ENVIRONMENT_PLACEHOLDER"
 
 # Initialize DynamoDB resource
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 table = dynamodb.Table('multi-stage-app-user-data')
 
 # Simple HTML template with form
@@ -195,4 +195,4 @@ def index():
     )
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=3000, debug=True)
